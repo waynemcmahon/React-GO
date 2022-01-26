@@ -1,0 +1,193 @@
+import React, {Component} from 'react';
+import { Checkbox } from './checklistComponents/checklistItem/Checkbox';
+import { Button, Panel} from "react-bulma-components/full";
+import { FaEllipsisH } from "react-icons/fa";
+import { TaskDetails } from './checklistComponents/taskDetails/TaskDetails';
+
+export default class ChecklistSection extends Component {
+
+  constructor(props) {
+    super(props)
+
+    this.state = {
+        taskName: "",
+        stage: "Pre-Arrival",
+        important: "",
+        category: "Immigration",
+        displayBtn: false,
+        tasks: this.props.tasks, 
+        important: this.props.important, 
+        status: this.props.status, 
+        dependent: this.props.dependent,
+        deleteTask: this.props.deleteTask, 
+        markAsImportant: this.props.markAsImportant, 
+        markAsComplete: this.props.markAsComplete, 
+        section: this.props.section, 
+        category: this.props.category, 
+        toggleTaskDetails: this.props.toggleTaskDetails, 
+        filter: this.props.filter, 
+        hide: this.props.hide,
+        limit: this.props.limit
+    };   
+  }
+  componentDidMount(){
+    let limit = this.state.limit;
+    let tasksList = []
+    const tasks = this.state.tasks;
+    const section = this.state.section;
+    const status = this.state.status;
+    const dependent = this.state.dependent;
+    const markAsComplete = this.state.markAsComplete;
+    const toggleTaskDetails = this.state.toggleTaskDetails;
+    if (limit === undefined) {
+      limit = tasks.length;
+    }
+
+    console.log(tasks);
+
+  let limitCount = 1;
+  const tasksListArray = tasks.length ? (
+      tasks
+      //.sort((a, b) => +a.dependent > +b.dependent) 
+      .sort((a, b) => a.priority < b.priority)  
+      //.sort((a, b) => a.taskId > b.taskId) 
+            
+      .map(task => {
+        if((section === "complete" && parseInt(task.status) === status && !dependent)){
+          return (
+            <Panel.Block key={task.id} className="is-collapsible">
+              {task.priority}
+              <div className="checklistTaskCheckboxContainer">
+              {task.taskId}
+              <Checkbox 
+                task={task}
+                tasks={tasks}
+                markAsComplete={markAsComplete}  
+              />          
+              </div>
+              <div className="checklistTaskName">
+                  {"dependent: " + task.dependent + " | "}
+                  {"important if: " + task.importantIfId}
+                <div className="checklistTaskName__Text" dangerouslySetInnerHTML={{ __html: task.name }}/>
+              </div>
+              <div className="checklistTaskBtn">
+                <Button onClick={() => {toggleTaskDetails(task)}}>
+                  <FaEllipsisH/>
+                </Button>
+              </div> 
+            </Panel.Block>    
+          )
+          
+        }
+        else if(
+          section === "important" &&
+          parseInt(task.important) === 1 && 
+          parseInt(task.status) === 0 && 
+          parseInt(task.dependencyActive) === 0 &&
+          limitCount <= limit
+          ){
+          limitCount++;
+          return (
+            <Panel.Block key={task.id}>
+              {task.priority}
+              <div className="checklistTaskCheckboxContainer">
+              {task.taskId}
+               <Checkbox 
+                  task={task}
+                  tasks={tasks}
+                  markAsComplete={markAsComplete} 
+                />          
+              </div>            
+              <div className="checklistTaskName">
+              {"dependent: " + task.dependent + " | "}
+              {"important if: " + task.importantIfId}
+              <div className="checklistTaskName__Text" dangerouslySetInnerHTML={{ __html: task.name }}/>
+              </div>
+              <div className="checklistTaskBtn" is-pulled-right="true">
+                <Button onClick={() => {toggleTaskDetails(task)}}>
+                  <FaEllipsisH/>
+                </Button>                
+              </div> 
+            </Panel.Block>    
+          )
+        }
+        else if(
+          section === "todos" &&
+          parseInt(task.important) === 0 && 
+          parseInt(task.status) === 0 && 
+          parseInt(task.dependencyActive) === 0){
+          return (
+            <Panel.Block key={task.id}>
+              {task.priority}
+              <div className="checklistTaskCheckboxContainer">
+              {task.taskId}
+               <Checkbox 
+                  task={task}
+                  tasks={tasks}
+                  markAsComplete={markAsComplete} 
+                />          
+              </div>
+              <div className="checklistTaskName">
+              {"dependent: " + task.dependent + " | "}
+              {"important if: " + task.importantIfId}
+              <div className="checklistTaskName__Text" dangerouslySetInnerHTML={{ __html: task.name }}/>
+              </div>
+              <div className="checklistTaskBtn" is-pulled-right="true">
+                <Button onClick={() => {toggleTaskDetails(task)}}>
+                  <FaEllipsisH/>
+                </Button>                
+              </div> 
+            </Panel.Block>    
+          )
+        }
+        else if(
+          section === "upcoming" &&
+          parseInt(task.status) === 0 && 
+          parseInt(task.dependencyActive) === 1){
+          return (
+            <Panel.Block key={task.id}>
+              {task.priority}
+              <div className="checklistTaskCheckboxContainer">
+                {task.taskId}
+               <Checkbox 
+                  task={task}
+                  tasks={tasks}
+                  markAsComplete={markAsComplete} 
+                />          
+              </div>
+              <div className="checklistTaskName">
+                {"dependent: " + task.dependent + " | "}
+                {"important if: " + task.importantIfId}
+              <div className="checklistTaskName__Text" dangerouslySetInnerHTML={{ __html: task.name }}/>
+              </div>
+              <div className="checklistTaskBtn" is-pulled-right="true">
+                <Button onClick={() => {toggleTaskDetails(task)}}>
+                  <FaEllipsisH/>
+                </Button>                
+              </div> 
+            </Panel.Block>    
+          )
+        }
+        else return "";
+      })
+    ) : (
+      <p>You have no tasks left</p>
+    ) 
+      console.log(tasksListArray);
+    this.setState({
+      tasksList: tasksListArray
+    })
+  }
+
+  
+  
+
+    render (){
+      return(
+        <div className="content" data-testid="content" id="checklistTaskList"> 
+                {this.state.tasksList}
+        </div>
+      )
+     
+    }
+}

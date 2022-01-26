@@ -1,0 +1,8 @@
+body .SidebarBtns__Container {
+  text-align: center; }
+  body .SidebarBtns__Container .button {
+    margin-top: 15px;
+    background-color: #fff;
+    color: #373737;
+    width: 150px;
+    margin-right: 15px; }

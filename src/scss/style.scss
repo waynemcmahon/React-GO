@@ -1,0 +1,1131 @@
+@charset "utf-8";
+@import './_variable.scss';
+@import "./dashboard.scss";
+@import "./sidebar.scss";
+@import "./welcomeTour.scss";
+
+@include scrollbars(.5em, $red, $grey-light);
+
+html body{
+    background-color: #fff;
+    font-family: $family-sans-serif;
+}
+
+p{
+    font-size: 1rem;
+}
+
+body a {
+    color: $red
+}
+
+label{
+    color:#363636;
+    display: block;
+    font-size: 1rem;
+    font-weight: 700 !important;
+}
+
+.hide{
+    display: none;
+}
+
+.red{
+    color: $red;
+}
+
+.uppercase{
+    text-transform: uppercase;;
+}
+
+.bold-heavy{
+    font-weight: 600 !important;
+}
+
+.title{
+    font-family:$family-sans-serif;
+    font-weight: 600 !important;
+}
+
+.subtitle{
+    font-weight: 600 !important;
+    margin-bottom: .5rem;
+}
+
+.subtitle:not(:last-child){
+    margin-bottom: .5rem;
+}
+
+.link{
+    text-decoration: underline;
+    color: $grey-dark;
+    cursor: pointer;
+    font-weight: 500 !important;
+}
+
+.arrow-right{
+    color: #000;
+    margin-left: 5px;
+}
+
+
+.past{
+    color: $red;
+}
+
+.today{
+    color: $green;
+}
+
+.tomorrow{
+    color: $green
+}
+
+.react-date-picker{
+    position: absolute;
+    left: 45px;
+    .react-date-picker__wrapper{
+        display: none;
+    }
+    
+    .react-date-picker__calendar{
+        margin-top: 30px;
+    }
+}
+
+.dropdown {
+    width: 100%;
+
+    .dropdown-trigger{
+        width: 100%;
+    }
+
+    .dropdown-menu{
+        z-index: 9999999999;
+        .dropdown-item.is-active {
+            background-color: $purple;
+        }
+    }
+}
+
+.loadingOverlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:#fff;
+    z-index: 999;
+
+    .loader{
+        @include centre;
+        margin-top: -100px;
+        margin-left: -50px;
+    }
+}
+
+.markAsImportant {
+    width: 10%;
+}
+
+body .notification {
+    background-color: $purple;
+    color: #fff;
+
+    .taskList{
+        display: block;
+    }
+}
+
+.rotate{
+    @include rotate(-180deg);
+}
+
+.panel-icon{
+    @include transition(all .3s ease);
+}  
+
+.readOnly{
+    .readOnly-overlay{
+        position: absolute;
+        width: 30px;
+        height: 30px;
+        left: 0;
+        z-index: 2;
+        cursor: default;
+    }
+    
+    span.checkmark{
+        border-color: $grey-border;
+    }
+}
+
+body .content ol, body .content ul {
+    margin-top: 0;
+}
+
+.checklistTaskCheckboxContainer{
+    width: 10%;  
+    margin-top: 2px;  
+}
+
+.checklistClickContainer {
+    width: 100%;
+    cursor: pointer;    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .checklistTaskName {
+        width: 88%;
+        float: left;
+    }
+
+    .checklistTaskDate{
+        font-size: 80%;
+        color: $grey-mid;
+        cursor: pointer;
+
+
+    }
+
+    
+    .checklistNoteIcon{
+        width: 6%;
+        display: inline-block;
+
+        svg{
+            vertical-align: middle;
+        }
+    }
+    
+    .checklistTaskBtn {
+        width: 6%;
+        text-align: right;
+        float: right;
+    
+        button{
+            border: none;
+            padding: 0;
+        }
+    
+        .checklistTaskBtn__Open_Details{
+            color: $grey-light;
+            border: none;
+        }
+    
+    }
+}
+
+
+
+
+
+.titleRed{
+    text-transform: uppercase;
+    color: $red;
+    font-weight: 500;
+}
+
+.panel-block{
+    border: 0 !important;
+    padding: .9em 0;
+}
+
+a.panel-block{
+    font-weight: 500;
+}
+
+.box{
+    .content {
+        .panel-block{
+            border-bottom: 1px solid $grey-border !important;
+        }
+    }
+}
+
+.header{
+    padding: 60px 15px 15px 15px;
+}
+
+.sectionHide{
+    display: none;
+}
+
+.invisible{
+    visibility: hidden !important;
+}
+
+.modal{
+    .delete{
+        display: none;
+    }
+
+    .modal-close::after{
+        height: 3px;
+        width: 70%;
+    }
+    .modal-close::before {
+        height: 71%;
+        width: 3px;
+    }
+
+    .modal-card-title{
+        width: 100%;
+    }
+
+    .list {
+        margin-top: 30px;
+
+        .list-item {
+            color: $grey-dark;
+        }
+            
+    }
+}
+
+.modal__addToCalendar{
+    .modal-card{
+        width: 300px;
+
+        .modal-card-head{
+            text-align: center;
+            //border-radius: 0 0 5px 5px;
+        }
+
+        .modal-card-body{
+            text-align: center;
+            li{
+                list-style-type: none;
+                margin: 0 auto;
+                border-bottom: 1px solid $grey-light;
+                padding: 15px 15px 15px 10px;
+
+                a{
+                    color: $grey-dark;
+
+                    svg{
+                        vertical-align: text-top;
+                        margin-right: 15px;
+                    }
+                }
+
+                a:hover{
+                    color: $red;
+                }
+            }
+            .calendarLink__Container{
+                margin: 0 auto;
+                border-bottom: 1px solid $grey-light;
+                padding: 15px 15px 15px 10px;   
+                position: relative; 
+
+                .calendarLink__Image{
+                    position: absolute;
+    left: 15px;
+    top: 19px;
+            }
+            .modal__Calendar__Link{
+                color: $grey-dark;
+                font-weight: 600;
+                font-size: 18px;
+            }
+            .modal__Calendar__Link:hover{
+                color: $red;
+            }            
+            }
+            
+        .modal__addToCalendar__Button{
+            margin-top: 30px;
+        }
+
+        }
+    }
+}
+
+.modal__addDate{
+    .modal-card-body{
+        //height: 400px
+    }
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 315px;
+    margin-top: 15px;
+}
+
+.headline_tab {
+    margin-top: 4px;
+    margin-bottom: 30px;
+    height: 6px;
+    width: 28px;
+    background-color: $grey-dark;
+}
+
+#app-root .breadcrumb{
+    position: absolute;
+    left: 15px;
+    top: 0;
+    a{
+        color: $red;
+        font-weight: 500;
+    }
+    .active {
+        color: $grey-dark;
+    }
+
+    .dashboardLink{
+        .active{
+            color: $red !important;
+        }
+    }
+}
+
+body .button{
+    padding: 0px 20px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-size: 14px;
+    height: 2.5rem;
+    &.red{
+        background-color: $red;
+        border: none;
+        color:#fff;
+    }
+
+    &.red:hover{
+        background: darken($red, 5%);
+        transition: background-color .3s;
+    }
+
+    &.purple{
+        background-color: $purple;
+        color: #fff
+    }
+
+    &.purple:hover{
+        background: darken($purple, 5%);
+        transition: background-color .3s;
+    }
+
+    &.arrow{
+        //padding: 20px 40px 20px 15px;
+        padding-right: 40px;
+    }
+
+    &.arrow::after{
+        width: 0;
+        height: 0;
+        content: '';
+        z-index: 2;
+        border-top: .4em solid transparent;
+        border-left: .4em solid currentColor;
+        border-right: .4em solid transparent;
+        position: absolute;
+        right: 6%;
+        border-bottom: .4em solid transparent;
+    }
+}
+
+.progressContainer{
+    padding: 15px 0;
+
+    .progress{
+        margin-bottom: 0 !important;
+        margin-top: 10px;
+    }
+
+    .progress::-webkit-progress-value {
+        background: $purple;
+    }
+    
+    .progress::-moz-progress-bar {
+        background: $purple;
+    }
+    
+    .progress::-webkit-progress-value {
+        background: $purple;
+    }
+    
+    .progress::-webkit-progress-bar {
+        background: $grey-light;
+    }
+
+    .progress, .progress::-webkit-progress-value {
+        transition: width 0.5s ease;
+        height: 10px;
+        color: $purple;
+        //max-width: 320px;
+        width: 100%;
+    }
+}
+
+.checklistSection {
+    margin-bottom: 20px;
+    transition: all .2s ease-in;
+
+    .panel-block{
+        padding: .4em 0;
+    }
+
+    .checklistTaskName__Text{
+        font-family: "Montserrat", sans-serif;
+    }
+}
+
+.checklistSection__Completed{
+    .checklistTaskName__Text{
+        text-decoration: line-through;
+    }
+}
+
+body .checklistBtns{
+    display: flex;
+
+    Button {
+        //color: $red;
+        text-transform: uppercase;
+        font-size: .9rem;
+        width: 100%;
+        justify-content: left;
+        padding: 0 0 0 15px;
+        border-radius: 5px;
+        height: 1.9rem;
+    }
+
+    .checklistBtns__Filter{
+        button{
+            padding-right: 35px;
+        }
+    }
+
+    .checklistBtns__Sort{
+        button{
+            padding-right: 35px;
+        }
+    }
+
+    select{
+        border: 1px solid $grey-dark;
+        color: $red;
+
+        option{
+            color: $grey-dark;
+        }
+    }
+
+    select:hover{
+        border-color: $red;
+    }
+
+    .select:not(.is-multiple):not(.is-loading)::after, .dropdown .icon{
+        border: none;
+        background: url("./scss/images/sort.png") no-repeat;
+        width: 16px;
+        height: 16px;
+        transform: none;
+        margin-top: -6px;
+    }
+
+    .dropdown {
+        .icon {
+            position: absolute;
+            right: 15px;
+            top: 15px;
+
+            .rbc:before{
+                display: none;
+            }    
+        }
+    }
+    .checklistBtns__AddTask{
+        margin-bottom: 0.75rem;
+
+        .checklistBtns__Add_Task{
+            background: $red;
+            color: #fff;
+            border: $red;
+            width: 50px;
+            height: 50px;
+            border-radius: 30px;
+            position: fixed;
+            bottom: 60px;
+            right: 60px;
+            z-index: 99;
+            padding: 10px;
+            
+        }
+        .checklistBtns__Add_Task:hover{
+            background: darken($red, 5%);
+            transition: all .3s;
+            width: 60px;
+            height: 60px;
+            padding-left: 15px;
+        }
+
+        svg{
+            margin-top: -1px;
+            margin-left: 2px;
+        }
+    }
+}
+
+.tabs{
+    ul{
+        margin: 0 ;
+    }
+
+    a{
+        font-weight: 500;
+    }
+}
+
+.appNotifications{
+    width: 350px;
+    left: 30px;
+    bottom: 30px;
+    position: fixed !important;
+    padding: .5rem 2.5rem .5rem 1.5rem !important;
+    background-color: $purple !important;
+    z-index: 9999999999999999999999999999999999 !important;
+}
+
+.sidebar{
+    padding-top: 30px;
+
+    .item{
+        display: flex;
+        padding: 10px;
+        justify-content: center;
+        flex-direction: row;
+    }
+
+    .movingTo_link a{
+        color: $grey-dark;
+        text-decoration: underline;
+    }
+
+    .iconContainer{
+        display: inline-block;
+
+        .icon{
+            height: 3.5rem;
+            width: 3.5rem;
+            background-color: $purple;
+            border-radius: 50%;
+            font-size: 1.5em;
+            color:#fff;
+    
+            .icon__plane{
+                background: url("./scss/images/plane.png") no-repeat;
+                height: 32px;
+                width: 30px;
+                display: inline-block;
+                padding: 0 0 0 0px;
+                background-size: 30px;
+                margin-left: 3px;
+            }
+            .icon__box{
+                background: url("./scss/images/box.png") no-repeat;
+                height: 32px;
+                width: 30px;
+                display: inline-block;
+                padding: 0 0 0 0px;
+                background-size: 30px;
+            }
+            .icon__question{
+                background: url("./scss/images/question.png") no-repeat;
+                height: 29px;
+                width: 23px;
+                display: inline-block;
+                padding: 0 0 0 0px;
+                background-size: 21px;
+            }
+            .icon__notes{
+                background: url("./scss/images/notes.png") no-repeat;
+                height: 23px;
+                width: 30px;
+                display: inline-block;
+                padding: 0 0 0 0px;
+                background-size: 30px;
+                margin-left: 3px;
+            }
+        }   
+        .mapleLeaf{
+            svg {
+                fill: none;
+                stroke: #fff;
+                stroke-width: 18px;
+            }
+        } 
+    }
+    
+    .details{
+        margin-left: 20px;
+        width: 70%;
+        display: flex;
+        align-items: center;
+
+        .details__text{
+            .details__text__title{
+                color: $red;
+                font-weight: 500;
+            }            
+        }
+
+        .sidebar__tasks{
+            li {
+                margin-bottom: 5px;
+            }
+
+            .details__text__title{
+                text-transform: uppercase;
+            }    
+        }
+    }
+
+    .progressContainer{
+        display: block;
+        padding: 15px 30px;
+        .progressCount__text{
+            color: $grey-mid;
+            font-size: 14px;
+        }
+    }
+}
+/* The container */
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 25px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        left: 0;
+      }
+      /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 25px;
+        width: 25px;
+        background-color:#fff;
+        border: 1px solid $red;
+        border-radius: 5px;
+        cursor: pointer;
+    }  
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+  }
+
+  
+  /* On mouse-over, add a grey background color */
+  .checkbox-container:hover input ~ .checkmark {
+    background-color: $grey-light;
+  }
+  
+  /* Show the checkmark when checked */
+  .checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the checkmark/indicator */
+  .checkbox-container .checkmark:after {
+    left: 8px;
+    top: 3px;
+    width: 7px;
+    height: 14px;
+    border: solid $red;
+    border-top-width: medium;
+    border-right-width: medium;
+    border-bottom-width: medium;
+    border-left-width: medium;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.taskDetails{
+    position: fixed;
+    top: 0;
+    right: calc(-580px);
+    width: 580px;
+    height: 100%;
+    overflow-y: scroll;
+    transition: all .2s ease-in;   
+    z-index: 100; 
+
+    .title{
+        font-size: 1.5rem;
+    }
+
+    .taskDetails__header{
+        display: flex;
+        padding: 20px 0;
+        border-bottom: 2px solid $grey-light;
+
+        .markAsImportant{
+            width: 20%;
+            margin-top: -5px;
+            cursor: pointer;
+
+            input[type="checkbox"] {
+                display: none;
+            }
+            input[type="checkbox"]+label {
+                background: url('./scss/images/pin.png') no-repeat;
+                height: 35px;
+                width: 35px;
+                display: inline-block;
+                padding: 0 0 0 0px;
+                background-size: 35px;
+                cursor: pointer;
+                
+            }
+             input[type="checkbox"]:checked + label {
+                background: url("./scss/images/pin-full.png") no-repeat;
+                height: 35px;
+                width: 35px;
+                display: inline-block;
+                padding: 0 0 0 0px;
+                background-size: 35px;
+                cursor: pointer;
+            } 
+        }
+
+        .taskDetails__title{
+            width: 90%;
+        }
+
+        .taskDetails__close{
+            width: 10%;
+            cursor: pointer;
+
+            .close{
+                color: $red;
+            }
+        }
+        .taskDetails__close:hover{
+            .close{
+                color: darken( $red, 5% );
+                transition: all .3s;
+            }
+        }
+    }
+
+    .taskDetails__date {
+        padding-left: 35px;
+        padding-top: 5px;
+        color: $grey-mid;
+        cursor: pointer;
+
+        .checklistTaskDate{
+            .checklistTaskDate__editDate{
+                font-size: .8em;
+                margin-left: 15px;
+            }
+            .checklistTaskDate__editDate:hover{
+                border-bottom: 1px dotted $grey-mid;
+            }
+        }
+    }
+
+    .taskDetails__body{
+        border-bottom: 2px solid $grey-light;
+        padding: 30px 0;        
+
+        .button {
+            text-transform: initial;
+            border-radius: 5px;
+        }
+
+        .addTask__Container{
+            input{
+                width: 100%;
+                padding: 5px;
+                border-radius: 5px;
+                border: 1px solid $grey-border;
+                color: $grey-dark;
+            }
+
+            .addTask__Button{
+                color: #fff;
+                border: 1px solid #dbdbdb;
+                height: 40px;
+                background-color: $purple;
+            }
+
+            .addTask__Button:hover{
+                background-color: darken( $purple, 5% );
+                transition: background-color .3s;
+            }
+
+            .field:not(:last-child) {
+                margin-bottom: 3em;
+            }
+
+            .field.formSubField{
+                margin-bottom: 15px;
+            }
+
+            .formFieldDatePicker{                
+                .react-date-picker{
+                    border: 1px solid $grey-border;
+                    border-radius: 5px;
+                    padding: 5px;
+                    .react-date-picker__wrapper{
+                        border: none;
+                        
+                        .react-date-picker__inputGroup__input{
+                            border: none;
+                            padding: 0 5px;
+                        }
+    
+                        .react-date-picker__inputGroup__month, .react-date-picker__inputGroup__day{
+                            //width: 25px !important;
+                        }
+    
+                        .react-date-picker__inputGroup__year{
+                            //width: 50px !important;
+                        }
+                    }
+                }
+            }
+
+            
+        }
+
+        .taskDetails__body__header{
+            display: flex;  
+
+            .checkbox-container{
+                width: 10%;
+            }
+
+            .taskDetails__name{
+                width: 90%;
+            }
+        }
+
+        .taskDetails__body__message{
+            padding: 15px 0;
+            //white-space: pre-line;
+            border-bottom: 2px solid $grey-light;        
+
+            .task_categories_container{
+                margin-top: 30px;
+
+                .task_categories_container__category{
+                    border: 1px solid $red;
+                    border-radius: 5px;
+                    padding: 5px 10px;
+                    margin-right: 10px;
+                }
+            }
+
+            .tags{
+                .tag{
+                    font-size: .9rem;
+                }
+            }
+        }
+
+        .taskDetails__body__related{
+            .title{
+                margin-bottom: 30px;
+            }
+        }
+
+        .taskDetails__body_addDate{
+            button{
+                width: 100%;
+                margin-top: 15px;;
+            }
+        }
+
+        .taskDetails__body_addToCalendar{
+            padding-top: 30px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid $grey-light; 
+            position: relative;
+
+            .addToCalendar__Container{
+                text-align: right;
+
+                button{
+                    padding-right: 45px;
+                    background-color: $purple;
+                    color: #fff;
+                }
+
+                button:hover{
+                    background-color:darken($purple, 5%);
+                    transition: background-color .3s;
+                }
+            }
+
+            svg{
+                position: absolute;
+                right: 15px;
+                top:40px;
+                color: #fff
+            }
+        }
+
+        .taskDetails__body__not_relevant{
+            padding-top: 30px;
+            text-align: right;
+
+            .taskDetails__body__not_relevant_text{
+                display: inline-block;
+                display: inline-block;
+                height: 40px;
+                vertical-align: sub;
+                padding-right: 25px;
+            }
+
+            .taskDetails__body__not_relevant_btn{
+                display: inline-block;
+                position: relative;
+
+                .loaderContainer{
+                    width: 30px;
+                    height: 30px;   
+                }
+            }   
+        }
+    }
+
+    
+    .taskDetails__footer{
+        .taskDetails__body__notes{
+            padding-top: 30px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid $grey-light;
+
+            .taskDetails__body__notes__textarea{
+                width: 100%;
+                border-radius: 5px;
+                border: none;
+                background-color: $grey-light;
+                height: 150px;
+                padding: 20px;
+                resize: vertical;
+            }
+
+            .taskDetails__body__notes_btn_container{
+                text-align: right;
+                margin-top: 15px;
+            }
+        }        
+    }
+}
+
+.articleList__Container{
+    border-bottom: 2px solid $grey-light;
+    padding: 30px 0 30px 0;
+
+    .articleList__details{
+        width: 80%;
+        display: inline-block;
+        vertical-align: top;
+
+        .articleList__details__Title{
+            font-size: 1.25em;
+            font-weight: 700;
+            color: $grey-dark;
+            line-height: 1.125;
+            font-family: $family-sans-serif;
+            margin-bottom: .8em;
+        }
+    }
+}
+
+.articleList__img__Container{
+    text-align: right;
+
+    .articleList__img{
+        width: 20%;
+        display: inline-block;
+        position: relative;
+        overflow: hidden;
+        width: 100px;
+        height: 100px;
+        border-radius: 10px;
+
+        img{                    
+            position: absolute;
+            top: 0;
+            left: -50%;
+            max-width: none;
+            height: 100%;
+        }
+    }
+    .articleList__img.square img {
+        width: 100%;
+        position: initial;
+    }
+}
+
+.articleList__details__Author{
+    width: 80%;
+    display: flex;
+    vertical-align: top;
+
+    .articleList__details__Author__Icon{
+        background: $red;
+        border-radius: 20px;
+        width: 40px;
+        height: 40px;
+        color: #fff;
+        display: inline-block;
+        padding-top: 2px;
+        text-align: center;
+        vertical-align: inherit;
+        font-size: 25px;
+        font-weight: 500;
+    }
+
+    .articleList__details__Author__Name__Container{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        .articleList__details__Author__Name{
+            text-transform: uppercase;
+            margin-left: 15px;
+            font-size: 14px;
+            font-weight: 500;
+            vertical-align: bottom;
+            vertical-align: -moz-middle-with-baseline;
+            padding-top: 5px;
+            
+        }
+    }
+}
+
+.taskDetails.show{
+    right: 0;
+}
+
+.cookie_content .message {
+    background-color: initial;
+}
+@import "./responsive.scss";
+@import "../node_modules/bulma/bulma.sass";

@@ -1,0 +1,84 @@
+@media screen and (min-width: 1024px) {
+  .container {
+    max-width: 1200px;
+  }
+}
+@media screen and (max-width: 1024px) {
+  .checklist-nav__Container .checklist-nav {
+    flex-direction: column-reverse;
+    display: flex;
+  }
+  .dashboard .button {
+    width: 100%;
+    font-size: 0.8rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  body .sidebar {
+    padding-top: 30px;
+  }
+  body .dashboard {
+    margin-top: 30px;
+    padding: 15px;
+  }
+  body .checklistTaskBtn .button {
+    padding: 0px;
+    margin-right: 20px;
+  }
+  body .checklistBtns .checklistBtns__AddTask .checklistBtns__Add_Task {
+    bottom: 30px;
+    right: 30px;
+  }
+  body .taskDetails {
+    right: calc(-100%);
+    width: 100%;
+    padding: 1rem 0.75rem;
+  }
+  body
+    .taskDetails
+    .taskDetails__footer__related
+    .relatedResources__Container
+    .relatedResources__details {
+    width: 100%;
+  }
+  body .taskDetails .relatedResources__details__Author {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+  }
+  body
+    .taskDetails
+    .relatedResources__details__Author
+    .relatedResources__details__Author__Name {
+    margin-left: 0 !important;
+    display: inline-block;
+  }
+}
+@media (min-width: 320px) and (max-width: 480px) {
+  body .section {
+    padding: 0;
+    margin-top: 30px;
+  }
+  body .title {
+    font-size: 1.8rem;
+  }
+  body .checklistContainer {
+    box-shadow: none;
+    padding: 0;
+  }
+  body .checklistContainer .checklistTaskBtn .button {
+    margin-right: 0px;
+  }
+  .dashboard .module .module__view-all_arrow {
+    font-size: 0.8rem;
+  }
+  .modal-close::before,
+  .modal-close::after {
+    background-color: #000;
+    left: 100%;
+    top: 75%;
+  }
+  .appNotifications {
+    width: 80%;
+  }
+}

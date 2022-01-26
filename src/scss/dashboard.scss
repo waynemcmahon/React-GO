@@ -1,0 +1,213 @@
+@charset "utf-8";
+@import './_variable.scss';
+
+.dashboard{
+    margin-top: 60px;
+
+    a{
+        font-weight: 500;
+    }
+    .my-masonry-grid {
+        display: -webkit-box; /* Not needed if autoprefixing */
+        display: -ms-flexbox; /* Not needed if autoprefixing */
+        display: flex;
+        margin-left: -30px; /* gutter size offset */
+        width: auto;
+    }
+    .my-masonry-grid_column {
+        padding-left: 30px; /* gutter size */
+        background-clip: padding-box;
+    }
+
+    .my-masonry-grid_column:nth-child(1){
+        width: 40% !important;
+    }
+    
+    .my-masonry-grid_column:nth-child(2){
+        width: 60% !important;
+    }
+    
+    /* Style your items */
+    .my-masonry-grid_column > .box { /* change div to reference your elements you put in <Masonry> */
+        margin-bottom: 30px;
+    }
+
+    .module{
+        .subtitle.red {
+            font-size: .9rem;
+            margin-top: 30px;
+        }
+
+        .module__view-all_arrow{
+            font-size: .9rem;
+            cursor: pointer;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .module__headerContainer{
+            display: inline-block;
+            width: 100%;
+
+            .module__imgContainer{
+                float: left;
+            }
+            .module__subtitle{
+                float: left;
+                margin-left: 7px;
+            }
+            .module__view-all{
+                float: right;
+                cursor: pointer;
+            }           
+            .module__view-all:hover{
+                text-decoration: underline;
+            }  
+        }
+        
+    }
+
+    .progressModule{
+        .progressContainer{
+            .progress{
+                margin-bottom: 5px;                
+            }            
+        }
+    }
+
+    .mostImportantModule{
+        #checklistTaskList{
+            clear: both;
+        }
+    }
+
+    .forumModule{
+        .forumDiscussionList{
+            position: relative;
+            .forumDiscussionListItem{
+                &:before{
+                    width: 0;
+                    height: 0;
+                    content: '';
+                    z-index: 2;
+                    border-top: .4em solid transparent;
+                    border-left: .4em solid currentColor;
+                    border-right: .4em solid transparent;
+                    position: absolute;
+                    margin-top: 5px;
+                    margin-left: -15px;
+                    border-bottom: .4em solid transparent;
+                }
+
+                a{
+                    color: $grey-dark;
+                }
+                a:hover{
+                    color: $red;
+                }
+            }
+        }
+    }
+
+    .articleModule{
+        .articleList{
+            .articleListItem{
+                a{
+                    color: $grey-dark
+                }
+                a:hover{
+                    color: $red;
+                }
+            }
+
+            .panel-block{
+                padding: 1.4em 0;
+            }
+        }
+    }
+
+    .surveyModule{
+        .m2c-logo{
+            width: 40px;
+        }
+    }
+}
+
+.articleView__Container, .notesView__Container{
+    padding-top: 30px;
+}
+
+.notesView__Container{
+    .link{
+        color: $red;
+    }
+}
+
+.DashboardLink a{
+    color: $red !important;
+}
+
+.article-block__Container.articleList__Container{
+    border-bottom: none;
+}
+.articleList__Container .article-block{
+    .box{
+        height: 100%;
+        position: relative;
+        padding-bottom: 70px;
+    }
+    .articleList__img{
+        border-radius: 5px;
+        overflow: hidden;
+    }
+
+    .articleList__details{
+        width: 100%;
+        
+        .articleList__details__Title{
+            font-size: 1.5rem;
+            margin-top: 15px;
+        }
+       
+        .articleList__details__Author{
+            width: 100%;
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            border-top: 1px solid $grey-border;
+            padding-top: 15px;
+            padding-left: 15px;
+            .articleView__details__Author__Name__Container{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                .articleList__details__Author__Name{
+                    text-transform: uppercase;
+                    margin-left: 15px;
+                    font-size: 14px;
+                    font-weight: 600;
+                }
+            }   
+        }
+        
+
+        .articleList__details__Excerpt__Container{
+            padding-bottom: 15px;
+            
+            .articleList__details__Excerpt{
+                color: $grey-dark;
+                font-size: .9rem;
+            }
+        }
+       
+    
+    }
+}
+
+.readMore__Container{
+    width: 100%;
+    text-align: center;
+    a{
+
+    }
+}

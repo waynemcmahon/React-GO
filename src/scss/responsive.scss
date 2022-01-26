@@ -1,0 +1,188 @@
+/* 
+  ##Device = Desktops
+  ##Screen = 1281px to higher resolution desktops
+*/
+
+@media (min-width: 1281px) {
+
+//CSS
+
+}
+
+/* 
+##Device = Laptops, Desktops
+##Screen = B/w 1025px to 1280px
+*/
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+//CSS
+
+}
+
+/* 
+##Device = Tablets, Ipads (portrait)
+##Screen = B/w 768px to 1024px
+*/
+
+@media screen and (min-width: 1024px) {
+
+  .container {
+      max-width: 1200px;
+  }
+
+}
+
+@media screen and (max-width: 1024px) {
+  
+  .checklist-nav__Container{
+    .checklist-nav{
+        flex-direction: column-reverse;
+        display: flex;
+    }
+  }
+
+  .dashboard{
+    .button{
+      width: 100%;
+      font-size: .8rem;
+    }
+  }
+
+}
+
+/* 
+##Device = Tablets, Ipads (landscape)
+##Screen = B/w 768px to 1024px
+*/
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+
+//CSS
+
+}
+
+/* 
+##Device = Low Resolution Tablets, Mobiles (Landscape)
+##Screen = B/w 481px to 767px
+*/
+
+@media screen and (max-width: 767px) {
+  body{
+    .sidebar{
+      padding-top: 30px;
+    }
+
+    .dashboard{
+        margin-top: 30px;
+        padding: 15px;
+    }
+
+    .checklistTaskBtn{
+      .button{
+        padding: 0px;
+        margin-right: 20px;
+      }
+    }
+
+    .checklistBtns {
+      .checklistBtns__AddTask{
+        .checklistBtns__Add_Task{
+          bottom: 30px;
+          right: 30px;
+        }
+      }
+    }
+  
+    .taskDetails{
+        right: calc(-100%);
+        width: 100%;
+        padding: 1rem .75rem;
+  
+        .taskDetails__footer__related .relatedResources__Container .relatedResources__details{
+          width: 100%;
+        }
+  
+        .relatedResources__details__Author{
+          width: 50%;
+          display: inline-block;
+          vertical-align: top;
+
+          .relatedResources__details__Author__Name{
+            margin-left: 0 !important;
+            display: inline-block;
+          }
+        }
+        .taskDetails__body_addToCalendar{
+          button{
+            width: 100%;
+          }
+        }
+
+        .taskDetails__body__not_relevant{
+          padding-top: 15px !important;
+
+          .taskDetails__body__not_relevant_text{
+            text-align: center;
+            width: 100%;
+          }
+
+          .taskDetails__body__not_relevant_btn{
+            width: 100%;
+
+            button{
+              width: 100%;
+            }
+          }
+        }
+    }
+  }
+}
+
+/* 
+##Device = Most of the Smartphones Mobiles (Portrait)
+##Screen = B/w 320px to 479px
+*/
+
+@media (min-width: 320px) and (max-width: 480px) {
+body{
+  .section{
+    padding: 0;
+    margin-top: 30px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .checklistContainer{
+    box-shadow: none;
+    padding: 0;
+
+    .checklistTaskBtn {
+      .button {
+        margin-right: 0px;
+      }
+    }
+  }
+}
+
+.dashboard {
+  .module {
+    .module__view-all_arrow {
+      font-size: .8rem;
+    }
+  }
+}
+
+.modal-close::before, .modal-close::after {
+  background-color: #000;
+  left: 100%;
+  top: 75%;
+}
+
+.appNotifications{
+  width: 80%;
+}
+
+}

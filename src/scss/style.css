@@ -1,0 +1,11 @@
+@import url("https://fonts.googleapis.com/css?family=Nunito:400,700");
+.checklistTaskCheckbox {
+  width: 10%;
+}
+.checklistTaskName {
+  width: 80%;
+}
+.checklistTaskBtn {
+  width: 10%;
+  background: #444;
+}
